@@ -207,16 +207,16 @@ if (new URLSearchParams(location.search).get('embed') === '1') {
    THE ISSUE. Everything on the page is drawn from this block.
 
    To add a piece: add an entry to `pieces` (give it a free grid spot in
-   `at`), then add it to the `stops` of each line it rides, with a one-line
-   `take`. To drop a piece: delete its entry and its stops. When a piece
+   `at`), then add it to the `stops` of each line it rides, with a take of a few
+   words. No summaries: a piece shows its headline, byline and a verbatim quote. To drop a piece: delete its entry and its stops. When a piece
    publishes, paste its URL into `url` and set status to "published".
    ===================================================================== */
 const ISSUE = {
   title: "AI and the City",
   dek: "What happens when 21st-century code meets cracking concrete and big bureaucracy.",
-  howto: "Each colored line is an argument that runs through the issue, and each stop is a piece. <b>Pick a line</b> to ride it and see where every author lands, or <b>pick a stop</b> for the piece’s case and its transfers. {live} of {pieces} pieces are on the map so far; the rest are stations under construction. New to the issue? <a href=\"#piece-editors\">Start with the editors’ note</a>.",
+  howto: "Each colored line is an argument that runs through the issue, and each stop is a piece. <b>Pick a line</b> to ride it and see where every author lands, or <b>pick a stop</b> for the piece’s key quote and its transfers. {live} of {pieces} pieces are on the map so far; the rest are stations under construction. New to the issue? <a href=\"#piece-editors\">Start with the editors’ note</a>.",
   tocNote: "Working order from the issue plan. Pieces marked “in the works” don’t have a draft yet.",
-  footnote: "A first cut, built from drafts as of Nov. 11, 2026. Summaries paraphrase the drafts; quotations come from them and may change in editing. Each “Read the piece” button goes live when its piece publishes.",
+  footnote: "A first cut, built from drafts as of Nov. 11, 2026. Quotations come from the drafts and may change in editing. Each “Read the piece” button goes live when its piece publishes.",
 
   sections: [
     { id: "reboot",  name: "The Big Reboot",                  area: [0, 0, 8, 16],        labelAt: [0.3, 15.65] },
@@ -228,115 +228,106 @@ const ISSUE = {
   lines: [
     { id: "t", letter: "T", name: "Time", color: "#ff7c53",
       question: "Can AI give New Yorkers their time back?",
-      summary: "The line runs from the time government takes to the time AI could give back. Samuels starts with the time tax: the hours New Yorkers lose to forms, hold music and approvals, which fall hardest on people with the least slack. Aggarwala finds the same tax inside government. Chu and Rouault warn that speeding up a step that isn’t the bottleneck saves no one any time, and Tang wants every request to get a case number. At the far end, Gupta flips the question: if AI saves time, pay the gains out as time off.",
       via: { "chu>tang": [[8.5, 4.5], [10.5, 6.5], [15.5, 6.5]], "aggarwala>gupta": [[21.5, 7.5]] },
       stops: [
-        { p: "samuels", take: "Go after the time tax: AI working in the background so a mother doesn’t lose an afternoon recertifying a benefit." },
-        { p: "chu", take: "Speed up a step that isn’t the bottleneck and nothing changes. Boston rebuilt permitting around what residents are trying to do." },
-        { p: "tang", take: "311 had no category for her ID card question, so no case number. Every request should get one, routed to whoever owns the problem." },
-        { p: "aggarwala", take: "The hidden time tax is inside government: forms bounced between offices. Let AI check them before they’re submitted." },
-        { p: "gupta", take: "The other end of the time tax: take AI’s productivity gains as free time, with three more Monday holidays and guaranteed paid vacation." }
+        { p: "samuels", take: "Cut the time tax residents pay" },
+        { p: "chu", take: "Fix the bottleneck, not just any step" },
+        { p: "tang", take: "Every request gets a case number" },
+        { p: "aggarwala", take: "The time tax inside government" },
+        { p: "gupta", take: "Pay AI’s gains out as time off" }
       ] },
 
     { id: "w", letter: "W", name: "Workforce", color: "#e7466d",
       question: "What happens to the people who do the city’s work?",
-      summary: "The sharpest argument in the issue. Goldsmith would trade guarantees for change: no layoffs, training and a share of the savings, with the payroll shrinking through attrition. Heywood says Albany’s LOADinG Act protects tasks instead of people. Chu and Rouault, Tang, Aggarwala, Samuels and Schaeffer land on the same rule: augment the workers, don’t replace them.",
       via: { "aggarwala>schaeffer": [[21.5, 7.5]] },
       stops: [
-        { p: "samuels", take: "Nonprofits don’t ask how to replace staff. They want staff freed from the administrative work that buries them." },
-        { p: "chu", take: "Augment and redirect workers, don’t replace them. About 38% of local government employees are expected to retire within five years." },
-        { p: "goldsmith", take: "Strike a bargain: no AI layoffs, training and a share of the gains in paychecks, then shrink the payroll through attrition." },
-        { p: "heywood", take: "Albany’s LOADinG Act protects duties, not workers, and may bar AI from any task an employee does now." },
-        { p: "tang", take: "Give DC37 a seat at the table. The goal is to put residents in front of city workers, not to cut them." },
-        { p: "aggarwala", take: "No one loses a job to a form-checker; the exceptions still need a civil servant’s judgment." },
-        { p: "schaeffer", take: "AI can cover nights and weekends, but it supplements caseworkers and is no excuse to cut their funding." }
+        { p: "samuels", take: "Free nonprofit staff from paperwork" },
+        { p: "chu", take: "Augment workers, don’t replace them" },
+        { p: "goldsmith", take: "No layoffs, a share of savings, attrition" },
+        { p: "heywood", take: "State law protects tasks, not workers" },
+        { p: "tang", take: "Give DC37 a seat at the table" },
+        { p: "aggarwala", take: "Judgment calls stay with civil servants" },
+        { p: "schaeffer", take: "Supplement caseworkers, don’t cut them" }
       ] },
 
     { id: "r", letter: "R", name: "Rules", color: "#4e98cb",
       question: "Who should write AI’s rules: Washington, Albany or City Hall?",
-      summary: "Frazier draws the boundary: frontier AI is Washington’s job, and cities should govern what residents can see. Washburn argues that the best model for governing AI is a New York invention, zoning. Meanwhile, the rules that actually bind the city come from Albany and from its own agencies: the LOADinG Act, state camera law and the Education Department’s new classroom policy.",
       via: { "frazier>heywood": [[13.5, 1.5]] },
       stops: [
-        { p: "washburn", take: "The industry asked for a building code for each model. It needs zoning for the swarm of agents, as New York learned in 1916." },
-        { p: "frazier", take: "Frontier AI is Washington’s job. Cities should stick to what only they can do, starting with uses residents can see." },
-        { p: "heywood", take: "The strictest rule on the city’s own AI use was written in Albany, and it expires in July 2028 unless renewed." },
-        { p: "miller", take: "State law already lets cameras enforce four curb rules. The city should back Albany bills that add loading zones." },
-        { p: "reich", take: "The city’s school AI rules follow politics, not science, but they promise a year of real experimentation." }
+        { p: "washburn", take: "Zoning, not building codes, for AI" },
+        { p: "frazier", take: "Frontier AI is Washington’s job" },
+        { p: "heywood", take: "Albany wrote the strictest rule" },
+        { p: "miller", take: "Back Albany bills for curb cameras" },
+        { p: "reich", take: "School AI rules follow politics, not science" }
       ] },
 
     { id: "p", letter: "P", name: "Privacy", color: "#9b9fbc",
       question: "What should the city’s cameras and sensors be allowed to see?",
-      summary: "Nearly every piece that points AI at the street draws the same line. Ratti would write it into law: data about places flows freely, data about people only under strict limits. Miller and Ramaswami want video processed on the device and identities stripped before anything is stored. Chohlas-Wood would point AI at police body-camera footage. Appel argues the city needs no new surveillance at all.",
       via: { "ramaswami>chohlaswood": [[4.25, 8], [7.625, 8], [10.125, 10.5]] },
       stops: [
-        { p: "ramaswami", take: "Strip faces and plates before data reaches a server, post signs wherever sensors run and keep facial recognition out of public space." },
-        { p: "chohlaswood", take: "AI could review the NYPD’s vast body-camera archive, but first the city has to come clean about the surveillance tools it already buys." },
-        { p: "miller", take: "Street sensors should classify on the device, discard the video and send only counts." },
-        { p: "ramosruiz", take: "Residents should control where their comments go; what they say shouldn’t follow them." },
-        { p: "appel", take: "The city doesn’t need new surveillance tools. What it needs is already in its records." },
-        { p: "aggarwala", take: "City contracts should bar AI vendors from training on city data." },
-        { p: "ratti", take: "Write one distinction into law: data about places flows freely, data about people only under strict limits." }
+        { p: "ramaswami", take: "Strip faces and plates at the sensor" },
+        { p: "chohlaswood", take: "Disclose the surveillance tools first" },
+        { p: "miller", take: "Count on the device, discard the video" },
+        { p: "ramosruiz", take: "Residents control where their words go" },
+        { p: "appel", take: "No new surveillance needed" },
+        { p: "aggarwala", take: "Vendors can’t train on city data" },
+        { p: "ratti", take: "Places, yes; people, only under limits" }
       ] },
 
     { id: "d", letter: "D", name: "Data", color: "#dde44c",
       question: "Is the city’s data good enough to build on?",
-      summary: "Ramaswami and Appel see answers waiting in records the city already keeps. Kontokosta is the skeptic: 311 data records who complains, not who needs help, so AI trained on it sends services to the already well served. Chu and Rouault and Oren show how much cleanup and checking it takes to get the data right, and the data story shows what agencies already build on it.",
       via: { "kontokosta>chu": [[6.5, 3]], "ramaswami>datastory": [[4.25, 8]], "datastory>oren": [[8.25, 12]], "oren>appel": [[19, 12]] },
       stops: [
-        { p: "kontokosta", take: "311 shows who complains, not who needs help. Train AI on it and services flow to the already well served." },
-        { p: "chu", take: "Boston used AI to reconcile 13,000 sidewalk repair cases with mismatched data. Deciding which to fix stayed human." },
-        { p: "ramaswami", take: "Fragmented data keeps cities blind to their own complexity. Ground AI in open, verified public data." },
-        { p: "datastory", take: "Agencies already build on city records: the Fire Department scores about 330,000 buildings for fire risk using past fires, 311 complaints and nearby crimes." },
-        { p: "oren", take: "Each court decision is analyzed 10 times and marked unresolved unless at least eight runs agree." },
-        { p: "appel", take: "The answers are in records the city already keeps. AI can clean up Open Data and rank buildings for inspection." }
+        { p: "kontokosta", take: "311 shows who complains, not who needs help" },
+        { p: "chu", take: "AI reconciled 13,000 sidewalk cases" },
+        { p: "ramaswami", take: "Ground AI in open, verified data" },
+        { p: "datastory", take: "Agencies already build on city records" },
+        { p: "oren", take: "Check each ruling 10 times" },
+        { p: "appel", take: "The answers are already in the records" }
       ] },
 
     { id: "m", letter: "M", name: "Measure", color: "#57aa4a",
       question: "How will the city know what works?",
-      summary: "Several authors see AI less as a way to do the work than as a way to find out whether the work is working. Harvey would run program evaluations behind agency firewalls. Miller would judge Vision Zero by near-misses instead of tickets, Chohlas-Wood would use AI to count the police stops that go unreported, and Reich wants the schools’ AI year treated as an experiment. Della Volpe asks whether the progress the city reports is progress people feel.",
       via: { "harvey>miller": [[15, 9]] },
       stops: [
-        { p: "harvey", take: "Mayors need to know what programs cause. AI behind agency firewalls can run evaluations that took outside researchers years." },
-        { p: "miller", take: "Judge Vision Zero by near-misses and street behavior, not tickets. The city’s own plan admits it can’t measure that yet." },
-        { p: "chohlaswood", take: "One unreported stop in a sample of 200 clips drove the monitor’s estimate of nearly 2,000. AI-targeted review would make that count far more precise." },
-        { p: "reich", take: "Treat the school year as an experiment, and publish the measures, the data and the plan for revising the rules." },
-        { p: "dellavolpe", take: "Cities count jobs and on-time rates; residents judge daily life. Trust is won or lost in the gap." },
-        { p: "schaeffer", take: "An AI phone coach raised job placements 15%; a parole-hearing tool waits until its side effects are tested." }
+        { p: "harvey", take: "Evaluate programs behind agency firewalls" },
+        { p: "miller", take: "Measure near-misses, not tickets" },
+        { p: "chohlaswood", take: "Count the unreported stops" },
+        { p: "reich", take: "Treat the school year as an experiment" },
+        { p: "dellavolpe", take: "Measure what residents feel" },
+        { p: "schaeffer", take: "Placements rose 15%; test side effects first" }
       ] },
 
     { id: "o", letter: "O", name: "Open books", color: "#b9b9ba",
       question: "Can AI turn public records into public knowledge?",
-      summary: "Public records aren’t public knowledge until someone can read them. Oren and Chu and Rouault show AI turning court rulings and council votes into plain language. Frazier and Ramaswami turn the demand on the city itself: say when and where it uses AI and sensors, and publish what it finds. The data story reads the list of algorithms the city already discloses.",
       via: { "ramaswami>datastory": [[4.25, 8]], "datastory>oren": [[8.25, 12]] },
       stops: [
-        { p: "frazier", take: "When the city uses AI, publish the tool, the task and the outcome measures, then let residents contest them." },
-        { p: "chu", take: "Boston turned 19 years of council votes into 20-word plain-language summaries." },
-        { p: "ramaswami", take: "People deserve to know what a sensor on their block is doing. Post signs and publish the data as a public asset." },
-        { p: "datastory", take: "The city publishes which algorithms its agencies use: 86 tools at 19 agencies in 2025, up from 31 in 2022." },
-        { p: "oren", take: "AI turned every Court of Appeals decision since Judge Jenny Rivera joined the bench into plain language anyone can compare." }
+        { p: "frazier", take: "Publish the tool, the task, the results" },
+        { p: "chu", take: "Council votes in 20-word summaries" },
+        { p: "ramaswami", take: "Post signs; publish sensor data" },
+        { p: "datastory", take: "86 disclosed algorithms at 19 agencies" },
+        { p: "oren", take: "Court rulings in plain language" }
       ] },
 
     { id: "v", letter: "V", name: "Voice", color: "#cea9be",
       question: "Can AI help the city listen, and help neighbors hear each other?",
-      summary: "Della Volpe’s AI interviewers and Tang’s listening tools both promise more than a two-minute slot at a hearing, if the city closes the loop. Ramos-Ruiz wants neighbors connected to each other, not just to City Hall. Kontokosta reminds everyone that the loudest complaints are not the greatest needs.",
       stops: [
-        { p: "kontokosta", take: "Complaint data is a skewed voice: a household without heat probably won’t call about a pothole." },
-        { p: "tang", take: "Use engagement to listen at scale, as Taiwan and California did, and keep each thread open until the problem is solved." },
-        { p: "ramosruiz", take: "Civic tech links residents to City Hall but not to each other. AI can point neighbors toward shared concerns." },
-        { p: "dellavolpe", take: "AI interviewers have held more than 3,200 conversations with New Yorkers since May. People say more when they can finish their thoughts." }
+        { p: "kontokosta", take: "Complaints are a skewed voice" },
+        { p: "tang", take: "Listen at scale and close the loop" },
+        { p: "ramosruiz", take: "Connect neighbors to each other" },
+        { p: "dellavolpe", take: "3,200 AI interviews since May" }
       ] },
 
     { id: "g", letter: "G", name: "Gains", color: "#ffffff",
       question: "Who gets the gains from the boom?",
-      summary: "The issue’s economics line. Gupta sets the terms: if AI’s gains aren’t widely felt, voters will halt it. O’Neill and Townsend size the risk to New York State jobs. Giles wants AI companies to pay into a fund for New Yorkers and O’Flaherty and Sethi bet on cities that sell trust.",
       via: { "giles>dellavolpe": [[15.5, 14.5]] },
       stops: [
-        { p: "sethi", take: "AI makes fakes cheap, so some cities will build their economies around trust: finance, insurance, law, research." },
-        { p: "giles", take: "Make AI companies pay into an AI Fund for housing, kids and displaced workers." },
-        { p: "dellavolpe", take: "Over the summer, the job worries residents described shifted to AI taking office jobs." },
-        { p: "schaeffer", take: "For people leaving prison, an AI phone coach raised job placements 15%." },
-        { p: "gupta", take: "If AI’s gains aren’t widely felt, voters will halt it. Pay them out in time." },
-        { p: "townsend", take: "A 20,000-run simulation’s middle scenario: about 628,000 New York State jobs exposed to AI, 6.3% of the labor force. Worrying, not catastrophic." }
+        { p: "sethi", take: "Build city economies on trust" },
+        { p: "giles", take: "Make AI companies pay into a fund" },
+        { p: "dellavolpe", take: "Job worries shifted to AI" },
+        { p: "schaeffer", take: "AI coaching raised job placements 15%" },
+        { p: "gupta", take: "Share the gains or lose the public" },
+        { p: "townsend", take: "About 628,000 state jobs exposed" }
       ] }
   ],
 
@@ -344,47 +335,41 @@ const ISSUE = {
     /* ---------------- The Big Reboot ---------------- */
     { id: "editors", section: "reboot", order: 1, offMap: true,
       title: "Editors’ Note", short: "Start here", authors: ["Josh Greenman"],
-      thesis: "Most talk about AI swings between doom and hype. As an urban policy journal, Vital City asks a narrower set of questions: what AI can do for cities, what it will unlock and what risks it brings. About half the issue takes up how AI can make city government work better while avoiding mistakes like the MyCity chatbot; the rest steps back to ask how AI might reshape cities themselves.",
       quote: "What can these new technologies do for cities? What capabilities will they unlock? And, just as important, what risks will they pose?",
       status: "draft", url: "",
       links: [
-        { to: "frazier",   kind: "Debate it flags", why: "Frazier says Washington should regulate AI, not City Hall or Albany." },
-        { to: "giles",     kind: "Debate it flags", why: "Giles answers that the job falls to cities because Washington won’t do it." },
-        { to: "goldsmith", kind: "Debate it flags", why: "Goldsmith would shrink the city workforce through attrition as AI takes on more work." },
-        { to: "heywood",   kind: "Debate it flags", why: "Heywood warns that a state law already on the books may forbid much of that." }
+        { to: "frazier",   kind: "Debate it flags", why: "Washington should regulate AI, not cities" },
+        { to: "giles",     kind: "Debate it flags", why: "Cities must act; Washington won’t" },
+        { to: "goldsmith", kind: "Debate it flags", why: "Shrink the workforce through attrition" },
+        { to: "heywood",   kind: "Debate it flags", why: "State law may forbid it" }
       ] },
     { id: "chu", section: "reboot", order: 2, at: [5, 4.5], label: "se",
       title: "Between Hype and Reality: What AI Can and Can’t Fix in City Hall",
       short: "Hype vs. reality", authors: ["Tiffany Chu", "Alicia Rouault"],
-      bio: "Tiffany Chu is the former chief of staff to Boston Mayor Michelle Wu. Alicia Rouault is director of applied AI for government at Propel and former chief technology officer of the U.S. Department of Health and Human Services.",
-      thesis: "Cities are already using AI to clear backlogs, translate council votes and remap permitting, but speeding up a step that wasn’t the bottleneck fixes nothing. Chu and Rouault offer four principles: start from residents’ needs, augment workers, set guardrails instead of bans and build trust through transparency.",
       quote: "Putting simple trust in AI is not the answer, at least not yet.",
       status: "draft", url: "",
       links: [
-        { to: "ramaswami", kind: "Argues with", why: "Ramaswami sees every planner gaining superpowers within a generation. Chu and Rouault quote Oklahoma City: “there’s no magic easy button.”" },
-        { to: "samuels",   kind: "Agrees with", why: "Both warn that automating a broken process can make it worse." },
-        { to: "heywood",   kind: "Agrees with", why: "Broad bans on government AI are unwise, says each piece; Heywood names the one New York has." }
+        { to: "ramaswami", kind: "Argues with", why: "Superpowers soon, or no easy button?" },
+        { to: "samuels",   kind: "Agrees with", why: "Automating a broken process makes it worse" },
+        { to: "heywood",   kind: "Agrees with", why: "Broad bans on government AI are unwise" }
       ] },
     { id: "ramaswami", section: "reboot", order: 3, at: [3, 8], label: "s",
       title: "Solving Big Problems with Big Data", short: "Big problems, big data", authors: ["Prem Ramaswami"],
-      bio: "Prem Ramaswami is the head of Data Commons at Google. Previously, he served as president of urban technologies at Sidewalk Labs.",
-      thesis: "City problems from housing to flooding are tangled networks that human minds can’t trace alone; AI can map them and test fixes before anyone pours concrete. That works only with privacy built in: faces and plates stripped at the sensor, signs on the street and the data published as a public asset.",
       quote: "Human minds alone cannot trace those cascading multidimensional effects manually. But human minds in collaboration with AI can.",
       status: "draft", url: "",
       links: [
-        { to: "kontokosta", kind: "Argues with", why: "Ramaswami wants AI grounded in public data. Kontokosta warns that the data itself is skewed toward those who complain." },
-        { to: "ratti",      kind: "Same ground", why: "Both want sensing in public space without identifying anyone." },
-        { to: "chu",        kind: "Argues with", why: "Chu and Rouault are far more cautious about how fast AI will change city work." }
+        { to: "kontokosta", kind: "Argues with", why: "Public data skews toward complainers" },
+        { to: "ratti",      kind: "Same ground", why: "Sensing without identifying anyone" },
+        { to: "chu",        kind: "Argues with", why: "How fast will AI change city work?" }
       ] },
     { id: "datastory", section: "reboot", order: 4, at: [6.25, 10], label: "e",
       title: "AI and the City: A Data Story", short: "By the numbers", authors: ["Vital City"],
-      thesis: "New York is one of a few cities that publishes which algorithms its agencies use: 86 tools at 19 agencies in 2025, up from 31 at 11 in 2022, from child-welfare risk rankings to caption generators. The data story walks through the hard calls in policing, schools and the city workforce, then the wider economy: business adoption, young graduates’ unemployment, AI companies’ office leases and the Comptroller’s five budget scenarios.",
       quote: "The probabilities might sound like guesswork, and that’s because no one really knows what’s next.",
       status: "draft", url: "",
       links: [
-        { to: "heywood", kind: "Same ground", why: "Both point to the LOADinG Act as the state law that limits how far the city can use AI on its own work." },
-        { to: "reich",   kind: "Same ground", why: "The data story tracks the schools’ swings on AI, from the 2023 ChatGPT ban to this fall’s moratorium. Reich asks what the moratorium year should test." },
-        { to: "giles",   kind: "Same ground", why: "Both tally AI companies’ growing footprint in Manhattan offices." }
+        { to: "heywood", kind: "Same ground", why: "Both cite the LOADinG Act" },
+        { to: "reich",   kind: "Same ground", why: "The schools’ swings on AI" },
+        { to: "giles",   kind: "Same ground", why: "AI companies’ Manhattan office footprint" }
       ] },
     { id: "slevine", section: "reboot", order: 11, at: [3.25, 12.5], label: "e", status: "pending",
       title: "The Case for Municipal AI Governance", short: "Governing AI locally", authors: ["Samuel Levine"] },
@@ -392,103 +377,87 @@ const ISSUE = {
       title: "A New Urban Bargain on Data Centers", short: "Data centers", authors: ["Andy Masley"] },
     { id: "frazier", section: "reboot", order: 6, at: [5, 1.5], label: "n",
       title: "City Limits", short: "City limits", authors: ["Kevin Frazier"],
-      bio: "Kevin Frazier is AI Innovation and Law Fellow at Texas Law.",
-      thesis: "Mayors shouldn’t try to regulate frontier AI. That belongs to Washington, and cities lack the legal authority and legitimacy for it. Frazier offers a test for what cities should take on: local problems, work that needs local partners and AI uses residents can see, measure and contest.",
       quote: "So mayors and city councilors, even those in large cities, should not set their sights on regulating the frontier of AI.",
       status: "draft", url: "",
       links: [
-        { to: "washburn", kind: "Argues with", why: "Frazier keeps cities out of frontier AI. Washburn says the best model for governing it is a city invention." },
-        { to: "samuels",  kind: "Agrees with", why: "Both read the Council’s frontier-risk hearing as a national question and point the city at its own services." },
-        { to: "oren",     kind: "Same ground", why: "Frazier asks the city to show its work; Oren shows what that looks like for a court." }
+        { to: "washburn", kind: "Argues with", why: "Washington’s job, or a city invention?" },
+        { to: "samuels",  kind: "Agrees with", why: "Point the city at its own services" },
+        { to: "oren",     kind: "Same ground", why: "Show the work" }
       ] },
     { id: "washburn", section: "reboot", order: 7, at: [1.5, 1.5], label: "n",
       title: "What AI Can Learn from Cities", short: "Zoning for AI", authors: ["Alexandros Washburn"],
-      bio: "Alexandros Washburn is the founder of civicvirtue.ai and former chief urban designer of New York City.",
-      thesis: "When the AI industry asked for rules, it asked for the equivalent of a building code for each model. New York’s 1916 Zoning Resolution offers the better lesson: govern what the swarm of agents does to the shared environment, the way setbacks protected light and air.",
       quote: "A city is literally an alignment machine, a machine for turning strangers into citizens.",
       status: "draft", url: "",
       links: [
-        { to: "frazier", kind: "Argues with", why: "Frazier says frontier AI is for Washington; Washburn reaches for a tool cities built." },
-        { to: "ratti",   kind: "Same ground", why: "Both draw on New York zoning history: the 1916 setbacks and the 1975 plaza rules." }
+        { to: "frazier", kind: "Argues with", why: "Who governs AI: Washington or cities?" },
+        { to: "ratti",   kind: "Same ground", why: "New York zoning history" }
       ] },
     { id: "samuels", section: "reboot", order: 8, at: [1.5, 4.5], label: "s",
       title: "Deliverance from Bureaucratic Purgatory?", short: "The time tax", authors: ["Julie Samuels"],
-      bio: "Julie Samuels is president and CEO of Tech:NYC.",
-      thesis: "New Yorkers lose hours to hold music, repeat forms and dead-end websites, a time tax that falls hardest on those with the least slack. Samuels argues AI should work in the background, flagging missing documents and drafting repair tickets, and that the city should start with the processes poor residents use most.",
       quote: "AI can improve service, but when used carelessly, it can exacerbate the very pain points we are trying to eliminate.",
       status: "draft", url: "",
       links: [
-        { to: "aggarwala", kind: "Same ground", why: "Samuels targets the time tax residents pay; Aggarwala targets the one inside government." },
-        { to: "heywood",   kind: "Runs into",   why: "The background fixes Samuels proposes are the kind Heywood says state law could block." },
-        { to: "schaeffer", kind: "Agrees with", why: "Both write from the nonprofit side: use AI to free staff for the human part of the job." },
-        { to: "gupta",       kind: "Same ground", why: "Two ends of the T line. Samuels wants AI to stop taking New Yorkers’ time; Gupta wants AI’s gains paid back as time." }
+        { to: "aggarwala", kind: "Same ground", why: "Time tax outside and inside government" },
+        { to: "heywood",   kind: "Runs into",   why: "State law could block these fixes" },
+        { to: "schaeffer", kind: "Agrees with", why: "Free nonprofit staff for human work" },
+        { to: "gupta",       kind: "Same ground", why: "Time tax, time dividend" }
       ] },
     { id: "giles", section: "reboot", order: 9, at: [5.5, 14.5], label: "n",
       title: "Lessons from Amazon HQ2 for New York’s AI Economy", short: "An AI Fund", authors: ["Jared Giles"],
-      bio: "Jared Giles is the founder of SquareOne and the author of The SQ1 Pivot, a weekly newsletter on data and civic policy. He is also the vice president of STEAM Engine.",
-      thesis: "When Amazon walked away from HQ2 in 2019, it grew in New York anyway, and the city lost its leverage. Arlington, Virginia, kept leverage by paying incentives only as the company delivered. Giles wants New York to strike that kind of deal with AI companies, starting with an AI Fund, modeled on the JFK redevelopment’s community program, that pools their cash and equity for housing, children’s college accounts and displaced workers.",
       quote: "And because the answer is not coming from the federal government or any one corporation, it falls on cities to take care of their citizens.",
       status: "draft", url: "",
       links: [
-        { to: "frazier",   kind: "Argues with", why: "Frazier leaves frontier AI to Washington. Giles says help won’t come from Washington, so cities have to bargain with the companies themselves." },
-        { to: "goldsmith", kind: "Same ground", why: "Goldsmith wants a bargain with city workers; Giles wants one with AI companies." },
-        { to: "gupta",     kind: "Agrees with", why: "Both say AI’s gains have to reach ordinary New Yorkers. Gupta would pay them out in time, Giles through a fund." }
+        { to: "frazier",   kind: "Argues with", why: "Cities can’t wait for Washington" },
+        { to: "goldsmith", kind: "Same ground", why: "A bargain with workers, one with companies" },
+        { to: "gupta",     kind: "Agrees with", why: "Spread the gains: a fund, or time" }
       ] },
     { id: "sethi", section: "reboot", order: 10, at: [1.5, 14.5], label: "n",
       title: "The Need to Build Cities of Trust", short: "Cities of trust", authors: ["Brendan O’Flaherty", "Rajiv Sethi"],
-      bio: "Brendan O’Flaherty is a professor of economics at Columbia University. Rajiv Sethi is a professor of economics at Barnard College, Columbia University and an external professor at the Santa Fe Institute.",
-      thesis: "AI makes fakes cheap. Mayor Mamdani says relatives have sent him AI videos of himself, thinking they were real. O’Flaherty and Sethi argue that raises the demand for authentication and authenticity, and both make face-to-face dealings more valuable. Some cities will build their economies around trust: high finance and insurance run on a handshake ethic like JP Morgan’s, plus law, research, news and universities with honor codes.",
       quote: "Like the Puritan dream of Boston as a shining city on a hill, the great cities of the age of AI should be shining islands of integrity in a sea of sleaze, deception and fraud.",
       status: "draft", url: "",
       links: [
-        { to: "chu",        kind: "Same ground", why: "Chu and Rouault ask residents to trust government AI; O’Flaherty and Sethi say AI will make trust scarce everywhere." },
-        { to: "dellavolpe", kind: "Same ground", why: "Della Volpe says trust is won or lost in daily life; O’Flaherty and Sethi say whole city economies will be built on it." },
-        { to: "giles",      kind: "Same ground", why: "Both ask how New York comes out ahead: Giles through a fund, O’Flaherty and Sethi through industries built on trust." },
-        { to: "ramosruiz",  kind: "Same ground", why: "Both say AI makes face-to-face trust worth more: O’Flaherty and Sethi in business, Ramos-Ruiz among neighbors." }
+        { to: "chu",        kind: "Same ground", why: "Trust in government AI" },
+        { to: "dellavolpe", kind: "Same ground", why: "Trust is won in daily life" },
+        { to: "giles",      kind: "Same ground", why: "How New York comes out ahead" },
+        { to: "ramosruiz",  kind: "Same ground", why: "Face-to-face trust gains value" }
       ] },
 
     /* ---------------- Retraining Our Systems ---------------- */
     { id: "goldsmith", section: "retrain", order: 1, at: [10, 4.5], label: "n",
       title: "Union Members and Bots, Holding Hands", short: "A bargain with labor", authors: ["Stephen Goldsmith"],
-      bio: "Stephen Goldsmith is the Derek Bok Professor of the Practice of Urban Policy at Harvard Kennedy School, director of Data-Smart City Solutions at the Bloomberg Center for Cities at Harvard University, and former mayor of Indianapolis and deputy mayor of New York City.",
-      thesis: "Facing more than $23 billion in projected budget gaps, the city could use AI to deliver better services for less, but union contracts and state law stand in the way. The former Indianapolis mayor proposes a bargain: no AI layoffs, training and a share of the gains for workers, with the workforce shrinking through attrition.",
       quote: "Blocking AI at the bargaining table will not permanently save jobs.",
       status: "draft", url: "",
       links: [
-        { to: "heywood", kind: "Same goal, other route", why: "Both want AI in city agencies. Goldsmith would win labor over with a bargain; Heywood would rewrite the state law." },
-        { to: "chu",     kind: "Argues with", why: "Goldsmith wants government right-sized over time; Chu and Rouault say augment and redirect the workforce." },
-        { to: "gupta",   kind: "Same ground", why: "Goldsmith pays out AI’s gains in paychecks; Gupta pays them out in time." }
+        { to: "heywood", kind: "Same goal, other route", why: "Bargain with labor, or rewrite the law" },
+        { to: "chu",     kind: "Argues with", why: "Right-size or redirect the workforce" },
+        { to: "gupta",   kind: "Same ground", why: "Gains as pay, gains as time" }
       ] },
     { id: "heywood", section: "retrain", order: 2, at: [13.5, 4.5], label: "sw",
       title: "New York State Heavily Restricts the Public Sector’s Use of AI", short: "The LOADinG Act", authors: ["Rebecca Heywood"],
-      bio: "Rebecca Heywood is the founder of Civic Works Studio and a former New York City civil servant.",
-      thesis: "Albany’s LOADinG Act bars AI from taking over any duty a public employee performs now, and its key terms are undefined. Pennsylvania, California and Ohio protect workers while letting AI help; New York protects tasks, so its agencies will likely just avoid AI.",
       quote: "Only New York, it seems, is explicitly protecting the duties an employee is asked to perform, not the employee themselves.",
       status: "draft", url: "",
       links: [
-        { to: "goldsmith", kind: "Same goal, other route", why: "Goldsmith would negotiate with the unions; Heywood would change the statute." },
-        { to: "tang",      kind: "Same ground", why: "Tang wants DC37 at the table when the city picks its tools." },
-        { to: "samuels",   kind: "Same ground", why: "Samuels’s time-tax fixes are the uses Heywood says a strict reading could bar." }
+        { to: "goldsmith", kind: "Same goal, other route", why: "Negotiate, or change the statute" },
+        { to: "tang",      kind: "Same ground", why: "Unions at the table" },
+        { to: "samuels",   kind: "Same ground", why: "The fixes the law could bar" }
       ] },
     { id: "harvey", section: "retrain", order: 3, at: [15, 1.5], label: "n",
       title: "How’m I Really Doing?", short: "How’m I really doing?", authors: ["Anna Harvey"],
-      thesis: "Mayors need to know what their programs actually cause, but rigorous evaluation has meant years of data-sharing deals with outside researchers. AI working behind agency firewalls, guided by scientists, can now test programs and the city’s $32.4 billion in contracts quickly and cheaply.",
       quote: "Now, with the help of AI models (and a little help from the scientific community), mayors have a valuable new capacity to deliver improved government performance.",
       status: "draft", url: "",
       links: [
-        { to: "kontokosta", kind: "Argues with", why: "Harvey trusts agencies’ own records for evaluation; Kontokosta warns those records reflect who shows up." },
-        { to: "miller",     kind: "Same ground", why: "Both point to the Transportation Department’s street sensors as cheap measurement." },
-        { to: "reich",      kind: "Agrees with", why: "Both want government to run real experiments and learn from them." }
+        { to: "kontokosta", kind: "Argues with", why: "Agency records reflect who shows up" },
+        { to: "miller",     kind: "Same ground", why: "Street sensors as cheap measurement" },
+        { to: "reich",      kind: "Agrees with", why: "Run real experiments" }
       ] },
     { id: "kontokosta", section: "retrain", order: 4, at: [16.5, 3], label: "e",
       title: "If Data Are Biased, AI Will Only Amplify Problems", short: "Biased data in, bias out", authors: ["Constantine Kontokosta"],
-      thesis: "AI optimizes toward a goal, but city data like 311 records who complains, not who needs help. Without expertise, attention to where the data comes from and accountable humans in charge, AI will steer services toward the already well served.",
       quote: "Artificial intelligence can help deliver better services, but not without recognizing and accounting for data bias and embedding fairness into a data-driven decision-making process.",
       status: "draft", url: "",
       links: [
-        { to: "appel",      kind: "Argues with", why: "Appel would rank buildings for inspection using complaints and 311 calls; Kontokosta shows how that tilts service." },
-        { to: "harvey",     kind: "Argues with", why: "Harvey’s evaluations lean on the same administrative records." },
-        { to: "dellavolpe", kind: "Same ground", why: "Della Volpe’s long interviews reach the people 311 misses." }
+        { to: "appel",      kind: "Argues with", why: "Complaint data tilts service" },
+        { to: "harvey",     kind: "Argues with", why: "The same administrative records" },
+        { to: "dellavolpe", kind: "Same ground", why: "Reaching the people 311 misses" }
       ] },
     { id: "turkcan", section: "retrain", order: 5, at: [9.5, 0.65], label: "e", status: "pending",
       title: "What Building Digital Twins Can Teach Us", short: "Digital twins", authors: ["Mehmet Turkcan"] },
@@ -496,147 +465,124 @@ const ISSUE = {
     /* ---------------- Better Prompts, Better Services ---------------- */
     { id: "chohlaswood", section: "prompts", order: 1, at: [11.5, 10.5], label: "n",
       title: "AI to Advance Criminal Justice Reform", short: "Unstick justice reform", authors: ["Alex Chohlas-Wood"],
-      bio: "Alex Chohlas-Wood is an assistant professor of computational social science at NYU Steinhardt, where he directs the Algorithms, Data, and Public Policy (ADAPPT) Lab, and the former director of analytics at the New York City Police Department. He provides paid consulting services for the NYPD’s Racial Disparities Review Committee.",
-      thesis: "Many of New York’s justice reforms have stalled, often because the city struggles to act on its own digital information quickly or at scale. Chohlas-Wood proposes three uses for AI: reviewing body-camera footage to find unreported stops, helping 911 dispatchers and prosecutors divert more cases, and organizing digital evidence so cases move faster and fewer people wait on Rikers. To get there, the city has to win over a public wary of surveillance.",
       quote: "Today, AI is evolving so fast that we don’t have decades to spare.",
       status: "draft", url: "",
       links: [
-        { to: "oren",      kind: "Same ground", why: "Both put AI to work on the justice system: Oren on court rulings, Chohlas-Wood on policing, prosecution and jail." },
-        { to: "datastory", kind: "Same ground", why: "The data story lists the NYPD tools the city discloses. Chohlas-Wood says that disclosure law leaves out license plate readers." },
-        { to: "harvey",    kind: "Agrees with", why: "Both want AI to measure what city programs actually do." },
-        { to: "samuels",   kind: "Same ground", why: "Samuels counts the afternoons residents lose to paperwork. Chohlas-Wood counts the days people spend on Rikers while slow evidence holds up their cases." }
+        { to: "oren",      kind: "Same ground", why: "AI in the justice system" },
+        { to: "datastory", kind: "Same ground", why: "What the disclosure law leaves out" },
+        { to: "harvey",    kind: "Agrees with", why: "Measure what programs do" },
+        { to: "samuels",   kind: "Same ground", why: "Time lost to paperwork, and on Rikers" }
       ] },
     { id: "reich", section: "prompts", order: 2, at: [13.5, 13.5], label: "w",
       title: "AI to Help Students Learn and Teachers Teach", short: "AI in the classroom", authors: ["Justin Reich"],
-      bio: "Justin Reich is an associate professor of digital media at MIT and the host of “The Homework Machine” podcast.",
-      thesis: "The city’s September school AI rules ban student-facing AI through eighth grade and tightly limit it in high school, a response to politics more than evidence. Reich would give older students more room and says the policy’s best feature is its promise to treat the year as an experiment and publish what it learns.",
       quote: "New York City’s new policy on AI in schools is based on politics, not science.",
       status: "published", url: "https://www.vitalcitynyc.org/nyc-public-school-classroom-ai-policy/",
       links: [
-        { to: "harvey",  kind: "Agrees with", why: "Both want the city to test, measure and publish." },
-        { to: "frazier", kind: "Same ground", why: "Frazier’s test for local AI is whether residents can see, measure and contest it. Reich asks that of the schools." }
+        { to: "harvey",  kind: "Agrees with", why: "Test, measure and publish" },
+        { to: "frazier", kind: "Same ground", why: "Can residents see, measure and contest it?" }
       ] },
     { id: "appel", section: "prompts", order: 3, at: [20.5, 10.5], label: "ne",
       title: "AI to Improve Quality of Life", short: "Quality of life", authors: ["Josh Appel"],
-      bio: "Josh Appel is a policy analyst at the Manhattan Institute.",
-      thesis: "New Yorkers rate city services worse than they did in 2017, even though the city taxes and spends near the top of the nation. AI can read the records the city already keeps and predict where problems will appear, doing for city services what CompStat did for crime.",
       quote: "City government does not need to collect an entirely new universe of information.",
       status: "draft", url: "",
       links: [
-        { to: "kontokosta", kind: "Argues with", why: "Kontokosta warns that the complaint data Appel would feed the models sends service to the well served." },
-        { to: "harvey",     kind: "Same ground", why: "Both want the city to mine its own records to find what works." },
-        { to: "ramaswami",  kind: "Agrees with", why: "Both see open data as the raw material." }
+        { to: "kontokosta", kind: "Argues with", why: "Complaint data sends service to the well served" },
+        { to: "harvey",     kind: "Same ground", why: "Mine the city’s own records" },
+        { to: "ramaswami",  kind: "Agrees with", why: "Open data as raw material" }
       ] },
     { id: "miller", section: "prompts", order: 4, at: [13.5, 10.5], label: "se",
       title: "AI to Advance Vision Zero", short: "Vision Zero", authors: ["Andrew Miller"],
-      bio: "Andrew Miller writes Changing Lanes, a newsletter on mobility innovation, and is co-author of “The End of Driving.”",
-      thesis: "The mayor says he’ll judge Vision Zero by how people behave on the streets, but his plan concedes the city can’t measure that, and it never mentions AI. Computer-vision sensors already on city streets could count near-misses, guide the new Office of Curb Management and back camera enforcement, with privacy limits written in.",
       quote: "To make that judgment, the City needs to actually be able to measure the behavior of those who use the streets.",
       status: "draft", url: "",
       links: [
-        { to: "ratti",  kind: "Same ground", why: "Both want cameras that count what happens in public space without identifying anyone." },
-        { to: "harvey", kind: "Same ground", why: "Harvey cites the same street-sensor program as a cheap way to measure." }
+        { to: "ratti",  kind: "Same ground", why: "Counting cameras that identify no one" },
+        { to: "harvey", kind: "Same ground", why: "The same street-sensor program" }
       ] },
     { id: "oren", section: "prompts", order: 5, at: [9.5, 12], label: "n",
       title: "AI to Enhance Transparency and Accountability", short: "Courts in plain language", authors: ["Oded Oren"],
-      bio: "Oded Oren is the founder and executive director of Scrutinize, a nonprofit that uses data and AI to increase the transparency and accountability of state courts. He spent seven years as a public defender in the Bronx.",
-      thesis: "Court decisions are public, but understanding them takes expertise few people have, so the state’s highest court gets little scrutiny. Scrutinize used chains of AI prompts, each checked repeatedly, to turn every Court of Appeals decision since Judge Jenny Rivera joined into plain language anyone can compare.",
       quote: "Our work demonstrates how large language models can change the economics of producing public knowledge from public records.",
       status: "draft", url: "",
       links: [
-        { to: "chu",     kind: "Same ground", why: "Boston did the same for 19 years of City Council votes." },
-        { to: "frazier", kind: "Same ground", why: "Frazier wants residents able to see and contest how government uses AI." },
-        { to: "chohlaswood", kind: "Same ground", why: "Chohlas-Wood takes AI further into the justice system: policing, prosecution and jail." }
+        { to: "chu",     kind: "Same ground", why: "Plain-language summaries of public votes" },
+        { to: "frazier", kind: "Same ground", why: "See and contest government’s AI" },
+        { to: "chohlaswood", kind: "Same ground", why: "AI in the justice system" }
       ] },
     { id: "dellavolpe", section: "prompts", order: 6, at: [16.5, 13.5], label: "se",
       title: "AI to Listen Better", short: "AI that listens", authors: ["John Della Volpe"],
-      bio: "John Della Volpe is director of polling at the Harvard Kennedy School Institute of Politics. His company conducts research for Vital City, and he holds a significant financial stake in CrowdVox AI, the platform used for the interviews in his piece.",
-      thesis: "Cities measure themselves in jobs and on-time rates, while residents judge them by daily life. AI interviewers that hold long, recurring conversations with thousands of New Yorkers can capture both the number and the story, but listening builds trust only if the city visibly acts on what it hears.",
       quote: "Closing the loop doesn’t mean granting every request. It means showing New Yorkers that the City heard them as people, not just as data points.",
       status: "draft", url: "",
       links: [
-        { to: "tang",       kind: "Agrees with", why: "Both want the city to listen at scale and then close the loop." },
-        { to: "kontokosta", kind: "Same ground", why: "Both show what 311 tickets miss about people’s lives." },
-        { to: "ramosruiz",  kind: "Same ground", why: "Ramos-Ruiz wants the listening to connect residents to one another too." }
+        { to: "tang",       kind: "Agrees with", why: "Listen at scale, then close the loop" },
+        { to: "kontokosta", kind: "Same ground", why: "What 311 tickets miss" },
+        { to: "ramosruiz",  kind: "Same ground", why: "Listening that connects residents" }
       ] },
     { id: "tang", section: "prompts", order: 7, at: [16.5, 7.5], label: "ne",
       title: "AI to Amplify Civic Participation", short: "Case numbers for all", authors: ["Audrey Tang"],
-      bio: "Audrey Tang is Taiwan’s cyber ambassador and its first digital minister.",
-      thesis: "When she called 311 about her ID card application, there was no category, no case number and a one-way reply within 14 business days. Tang says city AI should route every request to the worker who can solve it and help the city listen at scale, not replace the people who do the work.",
       quote: "None of this replaces city workers; it puts residents in front of them.",
       status: "draft", url: "",
       links: [
-        { to: "dellavolpe", kind: "Agrees with", why: "Both want listening that recurs and visibly changes what the city does." },
-        { to: "goldsmith",  kind: "Argues with", why: "Tang wants unions at the table on AI; Goldsmith says those talks have mostly been about holding AI back." },
-        { to: "samuels",    kind: "Same ground", why: "A 311 dead end is the time tax in miniature." }
+        { to: "dellavolpe", kind: "Agrees with", why: "Listening that changes what the city does" },
+        { to: "goldsmith",  kind: "Argues with", why: "Unions at the table, or in the way?" },
+        { to: "samuels",    kind: "Same ground", why: "A 311 dead end is the time tax" }
       ] },
     { id: "ramosruiz", section: "prompts", order: 8, at: [16.5, 10.5], label: "ne",
       title: "AI to Connect Neighbors", short: "Better neighbors", authors: ["Dominic Ramos-Ruiz"],
-      bio: "Dominic Ramos-Ruiz is the founder of Citizenry, a nonprofit tech platform using AI to personalize civic engagement.",
-      thesis: "Civic engagement efforts strengthen ties between residents and City Hall but ignore ties among neighbors. AI can surface shared concerns and point people toward each other, though the trust still gets built face to face.",
       quote: "AI cannot manufacture human connection, but it can give us more reasons to recognize each other.",
       status: "draft", url: "",
       links: [
-        { to: "tang",       kind: "Same ground", why: "Both build on Taiwan-style deliberation tools." },
-        { to: "dellavolpe", kind: "Same ground", why: "Both start from what residents say when someone finally listens." },
-        { to: "sethi",     kind: "Same ground", why: "O’Flaherty and Sethi say AI makes face-to-face dealings more valuable, and whole city economies will run on them." }
+        { to: "tang",       kind: "Same ground", why: "Taiwan-style deliberation tools" },
+        { to: "dellavolpe", kind: "Same ground", why: "What residents say when someone listens" },
+        { to: "sethi",     kind: "Same ground", why: "Face-to-face trust gains value" }
       ] },
     { id: "aggarwala", section: "prompts", order: 9, at: [20.5, 7.5], label: "sw",
       title: "AI to Shred Government Paperwork", short: "Shred the paperwork", authors: ["Rohit Aggarwala"],
-      thesis: "Much of government’s slowness comes from internal paperwork, from hiring memos to payments, that gets rejected and bounced between offices. The city should train AI on years of approved and rejected forms so it can check submissions before they go in, like a spell-checker.",
       quote: "The goal is not to replace human government with government by AI, but to use AI to check forms before they are submitted.",
       status: "draft", url: "",
       links: [
-        { to: "samuels",   kind: "Same ground", why: "The time tax residents pay starts with the one government pays itself." },
-        { to: "goldsmith", kind: "Same ground", why: "Both say freeing workers from paperwork leaves the judgment calls to them." },
-        { to: "heywood",   kind: "Runs into", why: "Checking forms is a duty city employees perform now, the kind of task Heywood says the LOADinG Act may keep AI from taking over." }
+        { to: "samuels",   kind: "Same ground", why: "The time tax starts inside government" },
+        { to: "goldsmith", kind: "Same ground", why: "Leave the judgment calls to workers" },
+        { to: "heywood",   kind: "Runs into", why: "Checking forms is a protected duty" }
       ] },
     { id: "schaeffer", section: "prompts", order: 10, at: [24.5, 10.5], label: "e",
       title: "AI to Help Lift People Up", short: "Back on track", authors: ["Sam Schaeffer"],
-      bio: "Sam Schaeffer is chief executive officer of the Center for Employment Opportunities.",
-      thesis: "An AI phone coach helped people leaving prison prepare for job interviews at night and on weekends, when staff aren’t available. Schaeffer says such tools must supplement human relationships, never justify cutting them, and should be built by the nonprofits that use them.",
       quote: "AI should never seek to replace human support, which is needed to help people grappling with complex life challenges, but instead supplement it.",
       status: "draft", url: "",
       links: [
-        { to: "samuels",    kind: "Agrees with", why: "Both write from nonprofits buried in administrative work." },
-        { to: "tang",       kind: "Agrees with", why: "Same rule, different setting: supplement the people, don’t replace them." },
-        { to: "kontokosta", kind: "Same ground", why: "Both warn about tools trained on systems built on bias." }
+        { to: "samuels",    kind: "Agrees with", why: "Nonprofits buried in paperwork" },
+        { to: "tang",       kind: "Agrees with", why: "Supplement people, don’t replace them" },
+        { to: "kontokosta", kind: "Same ground", why: "Tools trained on biased systems" }
       ] },
 
     /* ---------------- The Wider City ---------------- */
     { id: "townsend", section: "wider", order: 1, at: [24.5, 3], label: "e",
       title: "What Jobs Will AI Really Replace?", short: "Jobs at risk", authors: ["Hugh O’Neill", "Anthony Townsend"],
-      thesis: "Cornell Tech’s Urban Tech Hub and the consulting firm Appleseed built a calculator that models AI’s effect on New York State jobs, then ran it 20,000 times with different assumptions. The middle scenario leaves about 628,000 jobs exposed, roughly 6.3% of the labor force: cause for concern, but far from the alarming headlines. The authors want the state to help workers change jobs, shore up unemployment insurance and make sure workers share AI’s gains.",
       quote: "We’re waiting for AI’s impacts on work and labor to come into focus. But by then, it could very well be too late.",
       status: "draft", url: "",
       links: [
-        { to: "gupta",     kind: "Same ground", why: "Both want working people to share AI’s gains: Gupta as time off, O’Neill and Townsend as wages and equity." },
-        { to: "goldsmith", kind: "Same ground", why: "Both look to unions to bargain over AI’s gains." },
-        { to: "datastory", kind: "Same ground", why: "Both treat AI’s toll on jobs as a range of scenarios, not a single forecast." },
-        { to: "giles",     kind: "Same ground", why: "Giles’s AI Fund would help displaced workers. O’Neill and Townsend estimate how many there could be." },
-        { to: "dellavolpe", kind: "Same ground", why: "Della Volpe hears New Yorkers’ job fears turning to AI. O’Neill and Townsend’s model says the likeliest toll is real but well short of the headlines." }
+        { to: "gupta",     kind: "Same ground", why: "Share the gains with workers" },
+        { to: "goldsmith", kind: "Same ground", why: "Unions bargaining over AI’s gains" },
+        { to: "datastory", kind: "Same ground", why: "Job losses as scenarios, not forecasts" },
+        { to: "giles",     kind: "Same ground", why: "Help for displaced workers" },
+        { to: "dellavolpe", kind: "Same ground", why: "Job fears, and the likely toll" }
       ] },
     { id: "ratti", section: "wider", order: 2, at: [22, 1.5], label: "n",
       title: "The Man at the Window", short: "Places, not people", authors: ["Carlo Ratti"],
-      bio: "Carlo Ratti is a professor at MIT, where he directs the Senseable City Lab, and at Politecnico di Milano. He is the founding partner of CRA-Carlo Ratti Associati.",
-      thesis: "Cameras that watch places are different from cameras that follow people. Ratti’s lab used AI to compare William H. Whyte’s 1970s plaza films with recent footage, and he wants New York to write the place-versus-people distinction into law.",
       quote: "Whyte’s cameras never learned a face or a name; he metaphorically stayed at the window.",
       status: "draft", url: "",
       links: [
-        { to: "miller",    kind: "Same ground", why: "Miller wants the same kind of counting cameras on the streets, with video discarded on the device." },
-        { to: "ramaswami", kind: "Agrees with", why: "Both want public-space data stripped of identities and published." },
-        { to: "gupta",     kind: "Same ground", why: "Both lean on Ed Glaeser: Ratti to explain why people linger less, Gupta on why Americans stopped cutting their hours." }
+        { to: "miller",    kind: "Same ground", why: "Counting cameras, video discarded" },
+        { to: "ramaswami", kind: "Agrees with", why: "Public-space data without identities" },
+        { to: "gupta",     kind: "Same ground", why: "Both lean on Ed Glaeser" }
       ] },
     { id: "gupta", section: "wider", order: 3, at: [24.5, 4.5], label: "e",
       title: "The AI Time Dividend", short: "The time dividend", authors: ["Arpit Gupta"],
-      thesis: "AI will keep public support only if its gains are widely felt, and Americans stopped converting productivity into free time in the 1970s. Gupta proposes taking the dividend as time: three more Monday holidays, paid parental leave and a guaranteed two weeks of vacation.",
       quote: "One way to achieve that is to ensure that we receive an AI dividend in the form of time.",
       status: "draft", url: "",
       links: [
-        { to: "goldsmith",  kind: "Same ground", why: "Goldsmith shares AI’s gains as pay; Gupta as time." },
-        { to: "dellavolpe", kind: "Same ground", why: "Della Volpe’s interviews track the job fears Gupta says could stall AI." },
-        { to: "samuels",    kind: "Same ground", why: "Samuels counts the hours government takes from New Yorkers. Gupta wants AI to give hours back." },
-        { to: "townsend",   kind: "Same ground", why: "O’Neill and Townsend size the job risk that Gupta says could turn voters against AI." }
+        { to: "goldsmith",  kind: "Same ground", why: "Gains as pay, gains as time" },
+        { to: "dellavolpe", kind: "Same ground", why: "Job fears that could stall AI" },
+        { to: "samuels",    kind: "Same ground", why: "Time tax, time dividend" },
+        { to: "townsend",   kind: "Same ground", why: "Sizing the job risk" }
       ] }
   ]
 };
@@ -982,11 +928,9 @@ function renderPiece(p) {
   crumb.textContent = sec.name;
   let html = `<h2 class="p-title">${esc(p.title)}</h2>
     <p class="p-by">By <b>${esc(authorsText(p))}</b></p>`;
-  if (p.bio) html += `<p class="p-bio">${esc(p.bio)}</p>`;
   if (p.status === 'pending') {
     html += `<p class="pend">${esc(p.pendingNote || 'This piece is still in the works. It joins the map when the draft comes in.')}</p>`;
   } else {
-    if (p.thesis) html += `<p class="p-thesis">${esc(p.thesis)}</p>`;
     if (p.quote) html += `<blockquote class="p-quote" style="--accent:${accent}">“${esc(p.quote)}”<cite>${esc(authorsText(p))}</cite></blockquote>`;
   }
   html += p.url
@@ -1010,7 +954,6 @@ function renderLine(l) {
   crumb.textContent = 'Ride the ' + l.letter + ' line';
   let html = `<div class="l-head">${bulletHTML(l)}<h2 class="l-name">${esc(l.name)}</h2></div>
     <p class="l-q">${esc(l.question)}</p>
-    <p class="l-sum">${esc(l.summary)}</p>
     <h3 class="p-h">Stops, in order</h3>
     <ol class="strip" style="--lc:${l.color}">` + l.stops.filter(s => byId[s.p]).map(s => {
       const p = byId[s.p];
