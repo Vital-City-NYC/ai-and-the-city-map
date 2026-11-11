@@ -226,16 +226,16 @@ const ISSUE = {
   ],
 
   lines: [
-    { id: "t", letter: "T", name: "Time tax", color: "#ff7c53",
-      question: "Can AI give back the hours government takes?",
-      summary: "Almost every author starts here: the hours New Yorkers and city workers lose to forms, hold music and approvals. The split is over where the fix lives. Samuels and Aggarwala would put AI to work in the background now. Chu and Rouault warn that speeding up a step that isn’t the bottleneck changes nothing. Tang wants every request to get a case number, and Gupta asks what to do with the time AI saves.",
+    { id: "t", letter: "T", name: "Time", color: "#ff7c53",
+      question: "Can AI give New Yorkers their time back?",
+      summary: "The line runs from the time government takes to the time AI could give back. Samuels starts with the time tax: the hours New Yorkers lose to forms, hold music and approvals, which fall hardest on people with the least slack. Aggarwala finds the same tax inside government. Chu and Rouault warn that speeding up a step that isn’t the bottleneck saves no one any time, and Tang wants every request to get a case number. At the far end, Gupta flips the question: if AI saves time, pay the gains out as time off.",
       via: { "chu>tang": [[8.5, 4.5], [10.5, 6.5], [15.5, 6.5]], "aggarwala>gupta": [[21.5, 7.5]] },
       stops: [
         { p: "samuels", take: "Go after the time tax: AI working in the background so a mother doesn’t lose an afternoon recertifying a benefit." },
         { p: "chu", take: "Speed up a step that isn’t the bottleneck and nothing changes. Boston rebuilt permitting around what residents are trying to do." },
         { p: "tang", take: "311 had no category for her ID card question, so no case number. Every request should get one, routed to whoever owns the problem." },
         { p: "aggarwala", take: "The hidden time tax is inside government: forms bounced between offices. Let AI check them before they’re submitted." },
-        { p: "gupta", take: "Take AI’s productivity gains as free time: three more Monday holidays and guaranteed paid vacation." }
+        { p: "gupta", take: "The other end of the time tax: take AI’s productivity gains as free time, with three more Monday holidays and guaranteed paid vacation." }
       ] },
 
     { id: "w", letter: "W", name: "Workforce", color: "#e7466d",
@@ -328,7 +328,7 @@ const ISSUE = {
 
     { id: "g", letter: "G", name: "Gains", color: "#ffffff",
       question: "Who gets the gains from the boom?",
-      summary: "The issue’s economics line. Gupta sets the terms: if AI’s gains aren’t widely felt, voters will halt it. O’Neill and Townsend size the risk to New York State jobs, Giles wants AI companies to pay into a fund for New Yorkers and O’Flaherty and Sethi bet on cities that sell trust.",
+      summary: "The issue’s economics line. Gupta sets the terms: if AI’s gains aren’t widely felt, voters will halt it. O’Neill and Townsend size the risk to New York State jobs. Giles wants AI companies to pay into a fund for New Yorkers and O’Flaherty and Sethi bet on cities that sell trust.",
       via: { "giles>dellavolpe": [[15.5, 14.5]] },
       stops: [
         { p: "sethi", take: "AI makes fakes cheap, so some cities will build their economies around trust: finance, insurance, law, research." },
@@ -420,7 +420,8 @@ const ISSUE = {
       links: [
         { to: "aggarwala", kind: "Same ground", why: "Samuels targets the time tax residents pay; Aggarwala targets the one inside government." },
         { to: "heywood",   kind: "Runs into",   why: "The background fixes Samuels proposes are the kind Heywood says state law could block." },
-        { to: "schaeffer", kind: "Agrees with", why: "Both write from the nonprofit side: use AI to free staff for the human part of the job." }
+        { to: "schaeffer", kind: "Agrees with", why: "Both write from the nonprofit side: use AI to free staff for the human part of the job." },
+        { to: "gupta",       kind: "Same ground", why: "Two ends of the T line. Samuels wants AI to stop taking New Yorkers’ time; Gupta wants AI’s gains paid back as time." }
       ] },
     { id: "giles", section: "reboot", order: 9, at: [5.5, 14.5], label: "n",
       title: "Lessons from Amazon HQ2 for New York’s AI Economy", short: "An AI Fund", authors: ["Jared Giles"],
@@ -442,7 +443,8 @@ const ISSUE = {
       links: [
         { to: "chu",        kind: "Same ground", why: "Chu and Rouault ask residents to trust government AI; O’Flaherty and Sethi say AI will make trust scarce everywhere." },
         { to: "dellavolpe", kind: "Same ground", why: "Della Volpe says trust is won or lost in daily life; O’Flaherty and Sethi say whole city economies will be built on it." },
-        { to: "giles",      kind: "Same ground", why: "Both ask how New York comes out ahead: Giles through a fund, O’Flaherty and Sethi through industries built on trust." }
+        { to: "giles",      kind: "Same ground", why: "Both ask how New York comes out ahead: Giles through a fund, O’Flaherty and Sethi through industries built on trust." },
+        { to: "ramosruiz",  kind: "Same ground", why: "Both say AI makes face-to-face trust worth more: O’Flaherty and Sethi in business, Ramos-Ruiz among neighbors." }
       ] },
 
     /* ---------------- Retraining Our Systems ---------------- */
@@ -501,7 +503,8 @@ const ISSUE = {
       links: [
         { to: "oren",      kind: "Same ground", why: "Both put AI to work on the justice system: Oren on court rulings, Chohlas-Wood on policing, prosecution and jail." },
         { to: "datastory", kind: "Same ground", why: "The data story lists the NYPD tools the city discloses. Chohlas-Wood says that disclosure law leaves out license plate readers." },
-        { to: "harvey",    kind: "Agrees with", why: "Both want AI to measure what city programs actually do." }
+        { to: "harvey",    kind: "Agrees with", why: "Both want AI to measure what city programs actually do." },
+        { to: "samuels",   kind: "Same ground", why: "Samuels counts the afternoons residents lose to paperwork. Chohlas-Wood counts the days people spend on Rikers while slow evidence holds up their cases." }
       ] },
     { id: "reich", section: "prompts", order: 2, at: [13.5, 13.5], label: "w",
       title: "AI to Help Students Learn and Teachers Teach", short: "AI in the classroom", authors: ["Justin Reich"],
@@ -542,7 +545,8 @@ const ISSUE = {
       status: "draft", url: "",
       links: [
         { to: "chu",     kind: "Same ground", why: "Boston did the same for 19 years of City Council votes." },
-        { to: "frazier", kind: "Same ground", why: "Frazier wants residents able to see and contest how government uses AI." }
+        { to: "frazier", kind: "Same ground", why: "Frazier wants residents able to see and contest how government uses AI." },
+        { to: "chohlaswood", kind: "Same ground", why: "Chohlas-Wood takes AI further into the justice system: policing, prosecution and jail." }
       ] },
     { id: "dellavolpe", section: "prompts", order: 6, at: [16.5, 13.5], label: "se",
       title: "AI to Listen Better", short: "AI that listens", authors: ["John Della Volpe"],
@@ -574,7 +578,8 @@ const ISSUE = {
       status: "draft", url: "",
       links: [
         { to: "tang",       kind: "Same ground", why: "Both build on Taiwan-style deliberation tools." },
-        { to: "dellavolpe", kind: "Same ground", why: "Both start from what residents say when someone finally listens." }
+        { to: "dellavolpe", kind: "Same ground", why: "Both start from what residents say when someone finally listens." },
+        { to: "sethi",     kind: "Same ground", why: "O’Flaherty and Sethi say AI makes face-to-face dealings more valuable, and whole city economies will run on them." }
       ] },
     { id: "aggarwala", section: "prompts", order: 9, at: [20.5, 7.5], label: "sw",
       title: "AI to Shred Government Paperwork", short: "Shred the paperwork", authors: ["Rohit Aggarwala"],
@@ -583,7 +588,8 @@ const ISSUE = {
       status: "draft", url: "",
       links: [
         { to: "samuels",   kind: "Same ground", why: "The time tax residents pay starts with the one government pays itself." },
-        { to: "goldsmith", kind: "Same ground", why: "Both say freeing workers from paperwork leaves the judgment calls to them." }
+        { to: "goldsmith", kind: "Same ground", why: "Both say freeing workers from paperwork leaves the judgment calls to them." },
+        { to: "heywood",   kind: "Runs into", why: "Checking forms is a duty city employees perform now, the kind of task Heywood says the LOADinG Act may keep AI from taking over." }
       ] },
     { id: "schaeffer", section: "prompts", order: 10, at: [24.5, 10.5], label: "e",
       title: "AI to Help Lift People Up", short: "Back on track", authors: ["Sam Schaeffer"],
@@ -606,7 +612,9 @@ const ISSUE = {
       links: [
         { to: "gupta",     kind: "Same ground", why: "Both want working people to share AI’s gains: Gupta as time off, O’Neill and Townsend as wages and equity." },
         { to: "goldsmith", kind: "Same ground", why: "Both look to unions to bargain over AI’s gains." },
-        { to: "datastory", kind: "Same ground", why: "Both treat AI’s toll on jobs as a range of scenarios, not a single forecast." }
+        { to: "datastory", kind: "Same ground", why: "Both treat AI’s toll on jobs as a range of scenarios, not a single forecast." },
+        { to: "giles",     kind: "Same ground", why: "Giles’s AI Fund would help displaced workers. O’Neill and Townsend estimate how many there could be." },
+        { to: "dellavolpe", kind: "Same ground", why: "Della Volpe hears New Yorkers’ job fears turning to AI. O’Neill and Townsend’s model says the likeliest toll is real but well short of the headlines." }
       ] },
     { id: "ratti", section: "wider", order: 2, at: [22, 1.5], label: "n",
       title: "The Man at the Window", short: "Places, not people", authors: ["Carlo Ratti"],
@@ -626,7 +634,9 @@ const ISSUE = {
       status: "draft", url: "",
       links: [
         { to: "goldsmith",  kind: "Same ground", why: "Goldsmith shares AI’s gains as pay; Gupta as time." },
-        { to: "dellavolpe", kind: "Same ground", why: "Della Volpe’s interviews track the job fears Gupta says could stall AI." }
+        { to: "dellavolpe", kind: "Same ground", why: "Della Volpe’s interviews track the job fears Gupta says could stall AI." },
+        { to: "samuels",    kind: "Same ground", why: "Samuels counts the hours government takes from New Yorkers. Gupta wants AI to give hours back." },
+        { to: "townsend",   kind: "Same ground", why: "O’Neill and Townsend size the job risk that Gupta says could turn voters against AI." }
       ] }
   ]
 };
