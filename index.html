@@ -94,6 +94,7 @@ body.panel-open .panel{transform:none}
 .panel-bar .crumb{font-size:.82rem;color:var(--vc-charcoal);font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .closebtn{background:none;border:2px solid var(--vc-black);font-weight:700;font-size:.85rem;padding:3px 10px;cursor:pointer}
 .closebtn:hover,.closebtn:focus-visible{background:var(--vc-black);color:var(--vc-white);outline:none}
+@media (max-width:760px){.closebtn{padding:10px 16px;font-size:.9rem}}
 .panel-body{overflow-y:auto;padding:18px max(18px,env(safe-area-inset-right,0px)) calc(40px + env(safe-area-inset-bottom,0px)) 18px;flex:1;-webkit-overflow-scrolling:touch}
 @media (max-width:760px){
   .panel{top:auto;left:0;width:100%;height:80vh;border-left:0;border-top:2px solid var(--vc-black);transform:translateY(102%)}
@@ -796,7 +797,8 @@ ISSUE.pieces.forEach(p => {
   }
   const ring = el('path', { class: 'halo', d: `M${A[0]},${A[1]} L${B[0]},${B[1]}` }, g);
   ring.setAttribute('style', `stroke-linecap:round;stroke-width:${R * 2 + 12}px;fill:none;stroke-opacity:0`);
-  el('circle', { cx, cy, r: 26, fill: 'transparent' }, g);
+  // Bigger tap target on touch screens: about 44px across at phone scale.
+  el('circle', { cx, cy, r: matchMedia('(pointer: coarse)').matches ? 36 : 26, fill: 'transparent' }, g);
   const [ux, uy, anchor] = LABEL[p.label || 'e'];
   const half = best / 2;
   const off = R + 12 + half * (Math.abs(ux * (B[0] - A[0]) + uy * (B[1] - A[1])) / (best || 1));
