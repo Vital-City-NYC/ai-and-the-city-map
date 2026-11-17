@@ -215,9 +215,9 @@ if (new URLSearchParams(location.search).get('embed') === '1') {
 const ISSUE = {
   title: "AI and the City",
   dek: "What happens when 21st-century code meets cracking concrete and big bureaucracy.",
-  howto: "Each colored line is an argument that runs through the issue, and each stop is a piece. <b>Pick a line</b> to ride it and see where every author lands, or <b>pick a stop</b> for the piece’s key quote and its transfers. {live} of {pieces} pieces are on the map so far; the rest are stations under construction. New to the issue? <a href=\"#piece-editors\">Start with the editors’ note</a>.",
-  tocNote: "Working order from the issue plan. Pieces marked “in the works” don’t have a draft yet.",
-  footnote: "A first cut, built from drafts as of Nov. 13, 2026. Quotations come from the drafts and may change in editing. Each “Read the piece” button goes live when its piece publishes.",
+  howto: "Each colored line is an argument that runs through the issue, and each stop is a piece. <b>Pick a line</b> to ride it and see where every author lands, or <b>pick a stop</b> for the piece’s key quote and its transfers. New to the issue? <a href=\"#piece-editors\">Start with the editor’s note</a>.",
+  tocNote: "In the order of the issue.",
+  footnote: "Quotations come from the pieces. Each “Read the piece” button goes live when its piece publishes.",
 
   sections: [
     { id: "reboot",  name: "The Big Reboot",                  area: [0, 0, 8, 16],        labelAt: [3.6, 15.65] },
@@ -234,7 +234,7 @@ const ISSUE = {
         { p: "chu", take: "Start from what residents are trying to do" },
         { p: "samuels", take: "Cut the time tax residents pay" },
         { p: "tang", take: "Every request gets a case number" },
-        { p: "aggarwala", take: "The time tax inside government" }
+        { p: "aggarwala", take: "Less paperwork, more time for city workers" }
       ] },
 
     { id: "w", letter: "W", name: "Workforce", color: "#e7466d",
@@ -247,7 +247,7 @@ const ISSUE = {
         { p: "heywood", take: "State law protects the tasks workers do now" },
         { p: "tang", take: "Bring District Council 37 into AI decisions" },
         { p: "aggarwala", take: "Judgment calls stay with civil servants" },
-        { p: "schaeffer", take: "AI should supplement caseworkers" }
+        { p: "schaeffer", take: "AI should supplement job coaches" }
       ] },
 
     { id: "r", letter: "R", name: "Rules", color: "#4e98cb",
@@ -267,11 +267,11 @@ const ISSUE = {
       stops: [
         { p: "ratti", take: "Legal limits on data about people" },
         { p: "ramaswami", take: "Strip faces and plates at the sensor" },
-        { p: "chohlaswood", take: "Disclose the surveillance tools first" },
+        { p: "chohlaswood", take: "Stop fighting disclosure of surveillance contracts" },
         { p: "miller", take: "Count on the device, discard the video" },
         { p: "ramosruiz", take: "Residents control where their words go" },
         { p: "appel", take: "No new surveillance needed" },
-        { p: "aggarwala", take: "Vendors can’t train on city data" }
+        { p: "aggarwala", take: "Keep city data from training outside AI" }
       ] },
 
     { id: "d", letter: "D", name: "Data", color: "#dde44c",
@@ -305,15 +305,15 @@ const ISSUE = {
         { p: "frazier", take: "Publish the tool, the task and the results" },
         { p: "chu", take: "Council votes in 20-word summaries" },
         { p: "ramaswami", take: "Post signs; publish sensor data" },
-        { p: "datastory", take: "86 disclosed algorithms at 19 agencies" },
+        { p: "datastory", take: "86 disclosed tools at 19 agencies" },
         { p: "oren", take: "Court rulings in plain language" }
       ] },
 
     { id: "v", letter: "V", name: "Voice", color: "#cea9be",
       question: "Can AI help the city listen, and help neighbors hear each other?",
       stops: [
-        { p: "kontokosta", take: "The neediest households often don’t call 311" },
-        { p: "tang", take: "Listen at scale, and answer every thread" },
+        { p: "kontokosta", take: "Not everyone complains to 311 equally" },
+        { p: "tang", take: "Listen at scale and keep each thread open" },
         { p: "ramosruiz", take: "Connect neighbors to each other" },
         { p: "dellavolpe", take: "3,282 AI interviews since May" }
       ] },
@@ -335,7 +335,7 @@ const ISSUE = {
     { id: "editors", section: "reboot", order: 1, offMap: true,
       title: "Editor’s Note", short: "Start here", authors: ["Josh Greenman"],
       quote: "What can these new technologies do for cities? What capabilities will they unlock? And, just as important, what risks will they pose?",
-      status: "draft", url: "",
+      status: "draft", url: "https://www.vitalcitynyc.org/editors-note/",
       links: [
         { to: "frazier",   kind: "Debate it raises", why: "Frazier leaves AI regulation to Washington" },
         { to: "giles",     kind: "Debate it raises", why: "Cities must act; Washington won’t" },
@@ -355,7 +355,7 @@ const ISSUE = {
     { id: "ramaswami", section: "reboot", order: 3, at: [3, 8], label: "s",
       title: "Solving Big Problems With Big Data", short: "Big problems, big data", authors: ["Prem Ramaswami"],
       quote: "Human minds alone cannot trace those cascading multidimensional effects manually. But human minds in collaboration with AI can.",
-      status: "draft", url: "",
+      status: "draft", url: "https://www.vitalcitynyc.org/urban-innovation-big-data-ai/",
       links: [
         { to: "kontokosta", kind: "Argues with", why: "Public data skews toward complainers" },
         { to: "ratti",      kind: "Same ground", why: "Sensing without identifying anyone" },
@@ -368,14 +368,12 @@ const ISSUE = {
       links: [
         { to: "heywood", kind: "Same ground", why: "Both cite the LOADinG Act" },
         { to: "reich",   kind: "Same ground", why: "Both track the schools’ AI policy" },
-        { to: "giles",   kind: "Same ground", why: "Both count AI companies’ Manhattan office space" }
+        { to: "giles",   kind: "Same ground", why: "Giles lists AI companies’ New York offices" }
       ] },
-    { id: "slevine", section: "retrain", order: 2, at: [19, 1.5], label: "n", status: "pending",
-      title: "The Case for Municipal AI Governance", short: "Governing AI locally", authors: ["Samuel Levine"] },
     { id: "frazier", section: "retrain", order: 1, at: [8.75, 1.5], label: "n",
       title: "City Limits", short: "City limits", authors: ["Kevin Frazier"],
       quote: "So mayors and city councilors, even those in large cities, should not set their sights on regulating the frontier of AI.",
-      status: "draft", url: "",
+      status: "draft", url: "https://www.vitalcitynyc.org/ai-regulation-federal/",
       links: [
         { to: "washburn", kind: "Argues with", why: "Washburn reaches for zoning, a city tool" },
         { to: "samuels",  kind: "Agrees with", why: "Point the city at its own services" },
@@ -384,22 +382,22 @@ const ISSUE = {
     { id: "washburn", section: "reboot", order: 5, at: [1.5, 1.5], label: "n",
       title: "What AI Can Learn from Cities", short: "Zoning for AI", authors: ["Alexandros Washburn"],
       quote: "A city is literally an alignment machine, a machine for turning strangers into citizens.",
-      status: "draft", url: "",
+      status: "draft", url: "https://www.vitalcitynyc.org/ai-regulation-zoning-lessons/",
       links: [
         { to: "frazier", kind: "Argues with", why: "Who should govern AI" },
         { to: "ratti",   kind: "Same ground", why: "New York zoning history" }
       ] },
-    { id: "samuels", section: "retrain", order: 3, at: [8.75, 4.5], label: "n",
+    { id: "samuels", section: "retrain", order: 2, at: [8.75, 4.5], label: "n",
       title: "Deliverance from Bureaucratic Purgatory?", short: "The time tax", authors: ["Julie Samuels"],
       quote: "AI can improve service, but when used carelessly, it can exacerbate the very pain points we are trying to eliminate.",
-      status: "draft", url: "",
+      status: "draft", url: "https://www.vitalcitynyc.org/deliverance-from-bureaucratic-purgatory/",
       links: [
-        { to: "aggarwala", kind: "Same ground", why: "Aggarwala finds the time tax inside government" },
+        { to: "aggarwala", kind: "Same ground", why: "Aggarwala would cut the paperwork inside government" },
         { to: "heywood",   kind: "Runs into",   why: "State law could block these fixes" },
         { to: "schaeffer", kind: "Agrees with", why: "Free nonprofit staff for human work" },
         { to: "gupta",       kind: "Same ground", why: "Gupta wants AI’s gains paid back as time" }
       ] },
-    { id: "giles", section: "retrain", order: 9, at: [24.5, 4.5], label: "e",
+    { id: "giles", section: "retrain", order: 8, at: [24.5, 4.5], label: "e",
       title: "Generate Economic Gains for Every New Yorker", short: "An AI Fund", authors: ["Jared Giles"],
       quote: "And because the answer is not coming from the federal government or any one corporation, it falls on cities to take care of their residents.",
       status: "draft", url: "",
@@ -411,7 +409,7 @@ const ISSUE = {
     { id: "sethi", section: "reboot", order: 6, at: [1.5, 14.5], label: "s",
       title: "The Need to Build Cities of Trust", short: "Cities of trust", authors: ["Brendan O’Flaherty", "Rajiv Sethi"],
       quote: "Like the Puritan dream of Boston as a shining city on a hill, the great cities of the age of AI should be shining islands of integrity in a sea of sleaze, deception and fraud.",
-      status: "draft", url: "",
+      status: "draft", url: "https://www.vitalcitynyc.org/the-need-to-build-cities-of-trust/",
       links: [
         { to: "chu",        kind: "Same ground", why: "Chu and Rouault on trusting city AI" },
         { to: "dellavolpe", kind: "Same ground", why: "Della Volpe ties trust to daily life" },
@@ -420,34 +418,34 @@ const ISSUE = {
       ] },
 
     /* ---------------- Retraining Our Systems ---------------- */
-    { id: "goldsmith", section: "retrain", order: 4, at: [11.5, 4.5], label: "n",
+    { id: "goldsmith", section: "retrain", order: 3, at: [11.5, 4.5], label: "n",
       title: "Union Members and Bots, Holding Hands", short: "A bargain with labor", authors: ["Stephen Goldsmith"],
       quote: "Blocking AI at the bargaining table will not permanently save jobs.",
-      status: "draft", url: "",
+      status: "draft", url: "https://www.vitalcitynyc.org/ai-city-union-labor-bargain/",
       links: [
         { to: "heywood", kind: "Same goal, other route", why: "Bargain with unions, or amend the state law" },
         { to: "chu",     kind: "Argues with", why: "Right-size or redirect the workforce" },
         { to: "gupta",   kind: "Same ground", why: "Sharing AI’s gains as pay or as time off" }
       ] },
-    { id: "heywood", section: "retrain", order: 5, at: [13.5, 4.5], label: "sw",
+    { id: "heywood", section: "retrain", order: 4, at: [13.5, 4.5], label: "sw",
       title: "How New York Constrains Public Sector AI", short: "The LOADinG Act", authors: ["Rebecca Heywood"],
       quote: "Only New York, it seems, is explicitly protecting the duties an employee is asked to perform, not the employee themselves.",
-      status: "draft", url: "",
+      status: "draft", url: "https://www.vitalcitynyc.org/public-sector-ai-constraints-nyc/",
       links: [
         { to: "goldsmith", kind: "Same goal, other route", why: "Amend the state law, or bargain with unions" },
         { to: "tang",      kind: "Same ground", why: "Unions at the table" },
         { to: "samuels",   kind: "Same ground", why: "The fixes the law could bar" }
       ] },
-    { id: "harvey", section: "retrain", order: 6, at: [15, 1.5], label: "n",
+    { id: "harvey", section: "retrain", order: 5, at: [15, 1.5], label: "n",
       title: "How’m I Really Doing?", short: "How’m I really doing?", authors: ["Anna Harvey"],
       quote: "Now, with the help of AI models (and a little help from the scientific community), mayors have a valuable new capacity to deliver improved government performance.",
-      status: "draft", url: "",
+      status: "draft", url: "https://www.vitalcitynyc.org/ai-city-government-measurement-improvement/",
       links: [
         { to: "kontokosta", kind: "Argues with", why: "Agency records reflect who shows up" },
         { to: "miller",     kind: "Same ground", why: "Both cite the city’s street sensors" },
         { to: "reich",      kind: "Agrees with", why: "Both want the city to run experiments" }
       ] },
-    { id: "kontokosta", section: "retrain", order: 7, at: [16.5, 3], label: "e",
+    { id: "kontokosta", section: "retrain", order: 6, at: [16.5, 3], label: "e",
       title: "If Data Are Biased, AI Will Only Amplify Problems", short: "Biased data", authors: ["Constantine Kontokosta"],
       quote: "Artificial intelligence can help deliver better services, but not without recognizing and accounting for data bias and embedding fairness into a data-driven decision-making process.",
       status: "draft", url: "",
@@ -456,17 +454,15 @@ const ISSUE = {
         { to: "harvey",     kind: "Argues with", why: "Harvey relies on the same agency records" },
         { to: "dellavolpe", kind: "Same ground", why: "Reaching the people 311 misses" }
       ] },
-    { id: "turkcan", section: "retrain", order: 10, at: [21.5, 4.5], label: "n", status: "pending",
-      title: "What Building Digital Twins Can Teach Us", short: "Digital twins", authors: ["Mehmet Turkcan"] },
 
     /* ---------------- Better Prompts, Better Services ---------------- */
     { id: "chohlaswood", section: "prompts", order: 1, at: [11.5, 10.5], label: "n",
       title: "AI to Advance Criminal Justice Reform", short: "Unstick justice reform", authors: ["Alex Chohlas-Wood"],
       quote: "Today, AI is evolving so fast that we don’t have decades to spare.",
-      status: "draft", url: "",
+      status: "draft", url: "https://www.vitalcitynyc.org/criminal-justice-reform-ai-advancement/",
       links: [
         { to: "oren",      kind: "Same ground", why: "Oren applies AI to court rulings" },
-        { to: "datastory", kind: "Same ground", why: "The disclosure law omits license plate readers" },
+        { to: "datastory", kind: "Same ground", why: "The data story tallies disclosed city tools" },
         { to: "harvey",    kind: "Agrees with", why: "Measure what programs do" },
         { to: "samuels",   kind: "Same ground", why: "Delays also keep people waiting on Rikers" }
       ] },
@@ -475,13 +471,13 @@ const ISSUE = {
       quote: "New York City’s new policy on AI in schools is based on politics, not science.",
       status: "published", url: "https://www.vitalcitynyc.org/nyc-public-school-classroom-ai-policy/",
       links: [
-        { to: "harvey",  kind: "Agrees with", why: "Test, measure and publish" },
+        { to: "harvey",  kind: "Agrees with", why: "Test programs and measure what works" },
         { to: "frazier", kind: "Same ground", why: "Residents should be able to see and contest it" }
       ] },
     { id: "appel", section: "prompts", order: 3, at: [20.5, 10.5], label: "ne",
       title: "AI to Improve Quality of Life", short: "Quality of life", authors: ["Josh Appel"],
       quote: "City government does not need to collect an entirely new universe of information.",
-      status: "draft", url: "",
+      status: "draft", url: "https://www.vitalcitynyc.org/ai-to-improve-quality-of-life/",
       links: [
         { to: "kontokosta", kind: "Argues with", why: "Complaint data sends service to the well served" },
         { to: "harvey",     kind: "Same ground", why: "Mine the city’s own records" },
@@ -490,7 +486,7 @@ const ISSUE = {
     { id: "miller", section: "prompts", order: 4, at: [13.5, 10.5], label: "se",
       title: "AI to Advance Vision Zero", short: "Vision Zero", authors: ["Andrew Miller"],
       quote: "To make that judgment, the City needs to actually be able to measure the behavior of those who use the streets.",
-      status: "draft", url: "",
+      status: "draft", url: "https://www.vitalcitynyc.org/ai-street-safety-advancement-vision-zero/",
       links: [
         { to: "ratti",  kind: "Same ground", why: "Counting cameras that identify no one" },
         { to: "harvey", kind: "Same ground", why: "Harvey cites the same street sensors" }
@@ -498,7 +494,7 @@ const ISSUE = {
     { id: "oren", section: "prompts", order: 5, at: [9.5, 12], label: "n",
       title: "AI to Enhance Transparency and Accountability", short: "Courts in plain language", authors: ["Oded Oren"],
       quote: "Our work demonstrates how large language models can change the economics of producing public knowledge from public records.",
-      status: "draft", url: "",
+      status: "draft", url: "https://www.vitalcitynyc.org/ai-to-enhance-transparency-and-accountability/",
       links: [
         { to: "chu",     kind: "Same ground", why: "Boston summarized council votes in plain language" },
         { to: "frazier", kind: "Same ground", why: "Frazier wants residents able to contest city AI" },
@@ -516,25 +512,25 @@ const ISSUE = {
     { id: "tang", section: "prompts", order: 7, at: [16.5, 7.5], label: "ne",
       title: "AI to Amplify Civic Participation", short: "Case numbers for all", authors: ["Audrey Tang"],
       quote: "None of this replaces city workers; it puts residents in front of them.",
-      status: "draft", url: "",
+      status: "draft", url: "https://www.vitalcitynyc.org/ai-to-amplify-civic-participation/",
       links: [
         { to: "dellavolpe", kind: "Agrees with", why: "Listening that changes what the city does" },
         { to: "goldsmith",  kind: "Argues with", why: "Unions’ role in choosing the city’s AI" },
-        { to: "samuels",    kind: "Same ground", why: "Samuels counts hours lost to dead-end websites" }
+        { to: "samuels",    kind: "Same ground", why: "Samuels counts the time residents lose waiting" }
       ] },
     { id: "ramosruiz", section: "prompts", order: 8, at: [16.5, 10.5], label: "ne",
       title: "AI to Connect Neighbors", short: "Better neighbors", authors: ["Dominic Ramos-Ruiz"],
       quote: "AI cannot manufacture human connection, but it can give us more reasons to recognize each other.",
-      status: "draft", url: "",
+      status: "draft", url: "https://www.vitalcitynyc.org/ai-to-connect-neighbors/",
       links: [
         { to: "tang",       kind: "Same ground", why: "Taiwan-style deliberation tools" },
         { to: "dellavolpe", kind: "Same ground", why: "What residents say when someone listens" },
         { to: "sethi",     kind: "Same ground", why: "AI makes face-to-face dealings worth more" }
       ] },
     { id: "aggarwala", section: "prompts", order: 9, at: [20.5, 7.5], label: "sw",
-      title: "AI to Shred Government Paperwork", short: "Shred the paperwork", authors: ["Rit Aggarwala"],
+      title: "AI to Shred Government Paperwork", short: "Shred the paperwork", authors: ["Rohit Aggarwala"],
       quote: "The goal is not to replace human government with government by AI, but to use AI to check forms before they are submitted.",
-      status: "draft", url: "",
+      status: "draft", url: "https://www.vitalcitynyc.org/ai-to-shred-government-paperwork/",
       links: [
         { to: "samuels",   kind: "Same ground", why: "Samuels targets the time tax residents pay" },
         { to: "goldsmith", kind: "Same ground", why: "Leave the judgment calls to workers" },
@@ -543,14 +539,14 @@ const ISSUE = {
     { id: "schaeffer", section: "prompts", order: 10, at: [24.5, 10.5], label: "e",
       title: "AI to Help Lift People Up", short: "Back on track", authors: ["Sam Schaeffer"],
       quote: "AI should never seek to replace human support, which is needed to help people grappling with complex life challenges, but instead supplement it.",
-      status: "draft", url: "",
+      status: "draft", url: "https://www.vitalcitynyc.org/ai-reentry-social-services/",
       links: [
         { to: "samuels",    kind: "Agrees with", why: "Nonprofits buried in paperwork" },
         { to: "tang",       kind: "Agrees with", why: "Tang also wants AI to support workers" },
         { to: "kontokosta", kind: "Same ground", why: "Tools trained on biased systems" }
       ] },
 
-    { id: "townsend", section: "retrain", order: 8, at: [24.5, 3], label: "e",
+    { id: "townsend", section: "retrain", order: 7, at: [24.5, 3], label: "e",
       title: "What Jobs Will AI Really Replace?", short: "Jobs at risk", authors: ["Hugh O’Neill", "Anthony Townsend"],
       quote: "We’re waiting for AI’s impacts on work and labor to come into focus. But by then, it could very well be too late.",
       status: "draft", url: "",
@@ -563,7 +559,7 @@ const ISSUE = {
     { id: "ratti", section: "reboot", order: 7, at: [1.5, 8], label: "n",
       title: "The Man at the Window", short: "Cameras on places", authors: ["Carlo Ratti"],
       quote: "Whyte’s cameras never learned a face or a name; he metaphorically stayed at the window.",
-      status: "draft", url: "",
+      status: "draft", url: "https://www.vitalcitynyc.org/urban-surveillance-computer-vision/",
       links: [
         { to: "miller",    kind: "Same ground", why: "Miller’s sensors discard video and keep counts" },
         { to: "ramaswami", kind: "Agrees with", why: "Public-space data without identities" },
@@ -572,7 +568,7 @@ const ISSUE = {
     { id: "gupta", section: "reboot", order: 8, at: [1.5, 4.5], label: "n",
       title: "The AI Time Dividend", short: "The time dividend", authors: ["Arpit Gupta"],
       quote: "One way to achieve that is to ensure that we receive an AI dividend in the form of time.",
-      status: "draft", url: "",
+      status: "draft", url: "https://www.vitalcitynyc.org/ai-time-dividend/",
       links: [
         { to: "goldsmith",  kind: "Same ground", why: "Sharing AI’s gains as pay or as time off" },
         { to: "samuels",    kind: "Same ground", why: "Samuels counts the hours government takes" },
@@ -928,7 +924,7 @@ function renderPiece(p) {
   } else {
     if (p.quote) html += `<blockquote class="p-quote" style="--accent:${accent}">“${esc(p.quote)}”<cite>${esc(authorsText(p))}</cite></blockquote>`;
   }
-  html += p.url
+  html += (p.url && p.status === 'published')
     ? `<a class="cta" href="${esc(p.url)}" target="_blank" rel="noopener">Read the piece</a>`
     : `<span class="cta off" aria-disabled="true">${p.status === 'pending' ? 'Coming in this issue' : 'Link goes live when the piece publishes'}</span>`;
   if (p.rides.length) {
