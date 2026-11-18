@@ -1,5 +1,11 @@
 <!-- AI and the City: idea map. Vital City embed. Paste into a Ghost HTML card. -->
-<div class="vc-embed-ai-and-the-city-map" style="margin:1.5em 0;">
+<!-- On wide screens it widens to the full page (the post's title column slides under it while it is on screen); on phones and tablets it stays in the column. -->
+<div class="vc-embed-ai-and-the-city-map" style="margin:1.5em 0;position:relative;z-index:2;background:#fff;">
+  <div class="vc-embed-ai-and-the-city-map__bar" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px;margin:0 0 10px;">
+    <span style="font-size:0.85em;color:#444;">Pick a line or a stop to explore.</span>
+    <a class="btn btn--brand" href="https://vital-city-nyc.github.io/ai-and-the-city-map/" target="_blank" rel="noopener"
+       style="display:inline-block;background:#000;color:#fff;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;font-size:13px;font-weight:500;padding:12px 18px;border-radius:0;line-height:1.2;">Open the full-page map ↗</a>
+  </div>
   <div class="vc-embed-ai-and-the-city-map__frame" style="position:relative;width:100%;border:1px solid #111;overflow:hidden;">
     <iframe
       class="vc-embed-ai-and-the-city-map__iframe"
@@ -10,16 +16,28 @@
       style="display:block;width:100%;height:1500px;border:0;background:#fff;"
     ></iframe>
   </div>
-  <p style="font-size:0.8em;color:#666;margin:0.5em 0 0;text-align:center;">
-    Pick a line or a stop to explore.
-    <a href="https://vital-city-nyc.github.io/ai-and-the-city-map/" target="_blank" rel="noopener">Open full screen ↗</a>
-  </p>
   <script>
     (function () {
-      var f = document.querySelector('.vc-embed-ai-and-the-city-map__iframe');
+      var w = document.querySelector('.vc-embed-ai-and-the-city-map');
+      var f = w && w.querySelector('.vc-embed-ai-and-the-city-map__iframe');
+      if (!f) return;
+      // Widen to the page's full content width when the post has a sidebar beside the text.
+      function fit() {
+        w.style.marginLeft = ''; w.style.width = '';
+        var row = w.closest('.row');
+        if (!row || window.innerWidth < 900) return;
+        var rb = row.getBoundingClientRect(), wb = w.getBoundingClientRect();
+        var left = rb.left + 16, width = Math.min(rb.width - 32, 1400);
+        if (width - wb.width < 120) return;
+        w.style.marginLeft = Math.round(left - wb.left) + 'px';
+        w.style.width = Math.round(width) + 'px';
+      }
+      fit();
+      window.addEventListener('resize', fit);
+      window.addEventListener('load', fit);
       window.addEventListener('message', function (e) {
         var d = e && e.data;
-        if (!f || e.source !== f.contentWindow || !d || d.id !== 'ai-and-the-city-map') return;
+        if (e.source !== f.contentWindow || !d || d.id !== 'ai-and-the-city-map') return;
         if (d.type === 'vc-embed-height' && typeof d.height === 'number') {
           f.style.height = d.height + 'px';
         } else if (d.type === 'vc-embed-scroll' && typeof d.top === 'number') {
