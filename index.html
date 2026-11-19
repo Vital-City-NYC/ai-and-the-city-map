@@ -32,6 +32,7 @@ h1{font-family:var(--sans);font-weight:900;font-size:clamp(2rem,3.4vw,2.75rem);l
 .dek{font-size:clamp(1.05rem,1.4vw,1.25rem);margin:0 0 14px;max-width:46em}
 .howto{font-size:.95rem;color:#333;margin:0;max-width:52em}
 .howto b{font-weight:700}
+.embed .howto-intro{display:none}
 
 /* ---------- Line chooser ---------- */
 .lines{display:flex;flex-wrap:wrap;gap:8px 10px;margin:18px 0 14px;padding:0;list-style:none}
@@ -215,7 +216,7 @@ if (new URLSearchParams(location.search).get('embed') === '1') {
 const ISSUE = {
   title: "AI and the City",
   dek: "What happens when 21st-century code meets cracking concrete and big bureaucracy",
-  howto: "Each colored line is an argument that runs through the issue, and each stop is a piece. <b>Pick a line</b> to ride it and see where every author lands, or <b>pick a stop</b> for the piece’s key quote and its transfers. New to the issue? <a href=\"#piece-editors\">Start with the editor’s note</a>.",
+  howto: "Each colored line is an argument that runs through the issue, and each stop is a piece. <b>Pick a line</b> to ride it and see where every author lands, or <b>pick a stop</b> for the piece’s key quote and its transfers.<span class=\"howto-intro\"> New to the issue? <a href=\"#piece-editors\">Start with the editor’s note</a>.</span>",
   tocNote: "In the order of the issue.",
   footnote: "Quotations come from the pieces.",
 
