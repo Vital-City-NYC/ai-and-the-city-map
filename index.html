@@ -123,7 +123,6 @@ body.panel-open .panel{transform:none}
 .xfers li{margin:0 0 10px}
 .xbtn{display:block;width:100%;background:var(--vc-paper);border:0;border-left:4px solid var(--vc-black);padding:8px 10px;text-align:left;cursor:pointer}
 .xbtn:hover,.xbtn:focus-visible{background:#ececE6;outline:none}
-.xbtn .k{display:block;font-size:.76rem;font-weight:700;color:var(--vc-charcoal)}
 .xbtn .who{display:block;font-weight:700;font-size:.95rem}
 .xbtn .why{display:block;font-size:.88rem;color:#333}
 .pend{background:var(--vc-paper);padding:12px;font-size:.92rem;margin:0 0 16px}
@@ -935,7 +934,7 @@ function renderPiece(p) {
   if (p.links && p.links.length) {
     html += `<h3 class="p-h">Transfer to</h3><ul class="xfers">` + p.links.filter(x => byId[x.to]).map(x => {
       const q = byId[x.to];
-      return `<li><button class="xbtn" type="button" data-go-piece="${q.id}"><span class="k">${esc(x.kind)}</span><span class="who">${esc(authorsText(q))}: ${esc(q.title)}</span><span class="why">${esc(x.why)}</span></button></li>`;
+      return `<li><button class="xbtn" type="button" data-go-piece="${q.id}"><span class="who">${esc(authorsText(q))}: ${esc(q.title)}</span><span class="why">${esc(x.why)}</span></button></li>`;
     }).join('') + '</ul>';
   }
   pbody.innerHTML = html;
